@@ -20,18 +20,11 @@ font = pygame.font.Font(None, 36)
 camera_x = 0
 camera_y = 0
 
-
-# =========================
-# ENCAPSULATION + ABSTRACTION
-# =========================
 class Entity:
     def __init__(self, x, y, color):
         self.rect = pygame.Rect(x, y, 10, 10)
         self.color = color
-
-        # ENCAPSULATION
         self.__speed = 4
-
         self.name = "Player"
         self.has_key = False
 
@@ -43,7 +36,6 @@ class Entity:
     def set_speed(self, value):
         self.__speed = value
 
-    # ABSTRACTION
     def draw(self, screen, camera_x, camera_y):
         pygame.draw.rect(
             screen,
@@ -51,7 +43,6 @@ class Entity:
             self.rect.move(-camera_x, -camera_y)
         )
 
-    # POLYMORPHISM DASAR
     def interact(self):
         return "Tidak ada interaksi"
 
@@ -93,10 +84,6 @@ class Entity:
         if self.rect.bottom > 1200:
             self.rect.bottom = 1200
 
-
-# =========================
-# INHERITANCE
-# =========================
 class Obstacle:
     def __init__(self, x, y, w, h):
         self.rect = pygame.Rect(x, y, w, h)
@@ -109,27 +96,22 @@ class Obstacle:
             self.rect.move(-camera_x, -camera_y)
         )
 
-
 class NPC(Entity):
     def __init__(self, x, y, message):
         super().__init__(x, y, (200, 200, 0))
         self.message = message
 
-    # POLYMORPHISM
     def interact(self):
         return self.message
-
 
 class Treasure(Entity):
     def __init__(self, x, y):
         super().__init__(x, y, (220, 220, 220))
         self.is_collected = False
 
-    # POLYMORPHISM
     def interact(self):
         self.is_collected = True
         return "Kamu mendapatkan peti"
-
 
 class Trap(Entity):
     def __init__(self, x, y):
@@ -140,17 +122,14 @@ class Trap(Entity):
         self.is_triggered = True
         return "Terkena jebakan, tekan SPASI."
 
-
 class Key(Entity):
     def __init__(self, x, y):
         super().__init__(x, y, (255, 215, 0))
         self.is_collected = False
 
-    # POLYMORPHISM
     def interact(self):
         self.is_collected = True
         return "Kamu mendapatkan kunci"
-
 
 class Pintu(Entity):
     def __init__(self, x, y, w, h):
@@ -158,7 +137,6 @@ class Pintu(Entity):
         self.rect = pygame.Rect(x, y, w, h)
         self.locked = True
 
-    # POLYMORPHISM
     def interact(self):
         if player.has_key:
             self.locked = False
@@ -167,10 +145,6 @@ class Pintu(Entity):
         else:
             return "Pintu terkunci. Kamu butuh kunci."
 
-
-# =========================
-# OBJECT
-# =========================
 player = Entity(30, 1150, (0, 0, 255))
 
 villager = NPC(
@@ -178,11 +152,8 @@ villager = NPC(
     990,
     "Ambil peti itu dan bawa kembali ke sini!"
 )
-
 treasure = Treasure(870, 505)
-
 key_item = Key(600, 300)
-
 jebakan_list = [
     Trap(30, 1070),
     Trap(380, 803),
@@ -190,12 +161,10 @@ jebakan_list = [
     Trap(250, 480),
     Trap(330, 277),
 ]
-
 doors = [
     Pintu(900, 700, 20, 100),
     Pintu(400, 300, 100, 20)
 ]
-
 tembok_list = [
 
     # batas luar
@@ -220,21 +189,12 @@ running = True
 while running:
 
     screen.fill(CHOCLATE)
-
-    # =========================
-    # EVENT
-    # =========================
     for event in pygame.event.get():
-
         if event.type == pygame.QUIT:
             running = False
-
         if event.type == pygame.KEYDOWN:
-
             if event.key == pygame.K_ESCAPE:
                 running = False
-
-            # INTERAKSI
             if event.key == pygame.K_SPACE:
 
                 # mati kena trap
@@ -251,55 +211,36 @@ while running:
                     active_message = ""
 
                 else:
-
-                    # POLYMORPHISM
                     interact_objects = [villager]
-
                     if not treasure.is_collected:
                         interact_objects.append(treasure)
-
                     if not key_item.is_collected:
                         interact_objects.append(key_item)
-
                     interact_objects += doors
-
                     for obj in interact_objects:
-
                         if player.rect.inflate(30,30).colliderect(obj.rect):
-
                             active_message = obj.interact()
-
                             # selesai game
                             if obj == villager and treasure.is_collected:
-
                                 active_message = "Misi telah selesai!"
-
                                 text_surf = font.render(
                                     active_message,
                                     True,
                                     WHITE
                                 )
-
                                 pygame.draw.rect(
                                     screen,
                                     BLACK,
                                     (50, 500, 700, 60)
                                 )
-
                                 screen.blit(text_surf, (70, 520))
-
                                 pygame.display.flip()
-
                                 pygame.time.delay(3000)
-
                                 running = False
-
                             # ambil kunci
                             if obj == key_item:
                                 player.has_key = True
-
                             break
-
                     else:
                         active_message = ""
 
