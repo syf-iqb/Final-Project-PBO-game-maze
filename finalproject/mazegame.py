@@ -461,8 +461,8 @@ while running:
     screen.blit(player_img, (draw_x, draw_y))
 
     # fov luar
-    #fog = pygame.Surface((WIDTH, HEIGHT), pygame.SRCALPHA)
-    #fog.fill((0, 0, 0, 255))  # hitam FULL
+    fog = pygame.Surface((WIDTH, HEIGHT), pygame.SRCALPHA)
+    fog.fill((0, 0, 0, 255))  # hitam FULL
 
     player_screen = (
         player.rect.centerx - camera_x,
@@ -471,9 +471,9 @@ while running:
    
 
 # fov dalam
-    #pygame.draw.circle(fog, (0, 0, 0, 0), player_screen, FOV_RADIUS)
+    pygame.draw.circle(fog, (0, 0, 0, 0), player_screen, FOV_RADIUS)
 
-    #screen.blit(fog, (0, 0))
+    screen.blit(fog, (0, 0))
 
     # UI Dialog
     if active_message:
