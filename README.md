@@ -1,3 +1,3 @@
-# Project Game Mazee
+# Project Game Maze (But Hardly) :D
 # Description
-# This game make player should find the key to open the door and collected chest. After collect the chest player will back to NPC to end the game
+For a long time ago King announcment quest to mercenary. for some a day some mercenary accept the quest from King, the mercenary should find the key to open the door and collected chest. After collect the chest player will back to King to end the game.
