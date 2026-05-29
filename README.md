@@ -2,10 +2,10 @@
 # Deskripsi
 Proyek ini merupakan sebuah game RPG sederhana berbasis 2D yang dibuat menggunakan bahasa pemrograman Python dengan library Pygame. Game ini mengusung konsep petualangan di dalam dungeon atau labirin, di mana pemain harus menjelajahi area, menghindari jebakan, mencari kunci, membuka pintu, dan mengambil peti harta untuk menyelesaikan misi.
 # Anggota Kelompok
-Nayaka Raya Archie Setianto (25051204001) - Pembuat Class + cerita
-Syifa'ul Iqbal Saputra (25051204007) – Pembuat map + FOV
-Pobi Putra Anugrah (25051204074) – Pembuat map + Assets
-Faid Haidar (25051204152) – Pembuat Class + cerita
+Nayaka Raya Archie Setianto (25051204001) - Pembuat Class + cerita /n
+Syifa'ul Iqbal Saputra (25051204007) – Pembuat map + FOV /n
+Pobi Putra Anugrah (25051204074) – Pembuat map + Assets /n
+Faid Haidar (25051204152) – Pembuat Class + cerita /n
 # Fitur utama
 1. Sistem Pergerakan Player
    Player dapat bergerak ke arah kiri, kanan, atas, dan bawah menggunakan arrow key pada keyboard.
