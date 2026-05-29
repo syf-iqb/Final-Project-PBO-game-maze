@@ -35,6 +35,12 @@ Proyek ini merupakan sebuah game RPG sederhana berbasis 2D yang dibuat menggunak
 5. Control : -Arrow key/tombol panah untuk menggerakkan karakter.
              -Space/spasi untuk interaksi.
              -Esc untuk keluar game.
+# Panduan Bermain
+1. Pemain harus menemukan dan interaksi npc/villager terlebih dahulu
+2. didekat villager akan ada sebuah kunci, ambil untuk membuka pintu
+3. cari ruangan yang memiliki pintu (hati-hati ada 1 pintu yang mengarah jebakan
+4. cari sebuah chest dan kembali ke villager/npc untuk menyelesaikan gamenya
+
 # Latar Belakang game
 Di suatu masa yang teramat lampau dunia dipenuhi oleh reruntuhan tak terhitung. Mercenary yang amat banyak telah berpetualang menyusuri reruntuhan, tak terhitung juga mercenary yang telah tiada didalam reruntuhan, Ini semua untuk mendapatkan peti harta karun yang sudah dicari begitu lama oleh sang Raja, Raja tersebut memiliki seorang Putri yang sedang sakit. Konon di dalam reruntuhan yang sangat rumit bahkan banyak mercenary gagal menyelesaikan ekspedisi di reruntuhan tersebut terdapat sebuah peti yang berisi ramuan yang dapat menyembuhkan penyakit sang Putri dari penyakitnya. Penyakit tersebut telah membuat sang Putri begitu tersiksa, sehingga membuat sang Raja akhirnya membuat sebuah Titah ke semua guild mercenary untuk menyebarkan sebuah tugas dengan hadiah fantastis yang berupa harta yang melimpah dan dapat menikahi sang putri.
 
