@@ -24,10 +24,6 @@ camera_y = 0
 FOV_RADIUS = 80
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-
-# =========================================
-# LOAD SPRITE
-# =========================================
 def load_sprite_sheet(filename, frame_width, frame_height, scale=None):
     path = os.path.join(BASE_DIR, filename)
     sheet = pygame.image.load(path).convert_alpha()
@@ -66,9 +62,6 @@ soldier_walk_frames = load_sprite_sheet(
     SOLDIER_SCALE
 )
 
-# =========================================
-# TILESET
-# =========================================
 TILE_SRC = 16
 TILE_SIZE = 32
 
@@ -102,10 +95,7 @@ for ty in range(0, MAP_H, TILE_SIZE):
     for tx in range(0, MAP_W, TILE_SIZE):
         map_surface.blit(tile_floor, (tx, ty))
 
-# =========================================
-# LOAD ASSET KEY & CHEST
-# =========================================
-key_img = pygame.image.load(
+key_img = pygame.image.load(                                #load assest
     os.path.join(BASE_DIR, "keys_1_1.png")
 ).convert_alpha()
 key_img = pygame.transform.scale(key_img, (24, 24))
@@ -120,10 +110,6 @@ priest_img = pygame.image.load(
 ).convert_alpha()
 priest_img = pygame.transform.scale(priest_img, (20, 20))
 
-
-# =========================================
-# OBSTACLE
-# =========================================
 class Obstacle:
     def __init__(self, x, y, w, h):
         self.rect = pygame.Rect(x, y, w, h)
@@ -140,10 +126,6 @@ class Obstacle:
                 surface.blit(tile_wall, (rx + tx, ry + ty))
         surface.set_clip(old_clip)
 
-
-# =========================================
-# ENTITY
-# =========================================
 class Entity:
     def __init__(self, x, y, color):
         self.rect = pygame.Rect(x, y, 10, 10)
@@ -237,7 +219,6 @@ class Entity:
 
         self.update_animation()
 
-
 class NPC(Entity):
     def __init__(self, x, y, message):
         super().__init__(x, y, (200, 200, 0))
@@ -251,7 +232,6 @@ class NPC(Entity):
         draw_x = self.rect.centerx - cam_x - priest_img.get_width() // 2
         draw_y = self.rect.centery - cam_y - priest_img.get_height() // 2
         surface.blit(priest_img, (draw_x, draw_y))
-
 
 class Treasure(Entity):
     def __init__(self, x, y):
@@ -269,7 +249,6 @@ class Treasure(Entity):
             draw_y = self.rect.centery - cam_y - chest_img.get_height() // 2
             surface.blit(chest_img, (draw_x, draw_y))
 
-
 class Trap(Entity):
     def __init__(self, x, y):
         super().__init__(x, y, (255, 0, 0))
@@ -278,7 +257,6 @@ class Trap(Entity):
     def trigger(self):
         self.is_triggered = True
         return "Terkena jebakan, tekan SPASI."
-
 
 class Key(Entity):
     def __init__(self, x, y):
@@ -295,7 +273,6 @@ class Key(Entity):
             draw_x = self.rect.centerx - cam_x - key_img.get_width() // 2
             draw_y = self.rect.centery - cam_y - key_img.get_height() // 2
             surface.blit(key_img, (draw_x, draw_y))
-
 
 class Pintu(Entity):
     def __init__(self, x, y, w, h):
@@ -321,7 +298,6 @@ class Pintu(Entity):
             self.color,
             self.rect.move(-cam_x, -cam_y)
         )
-
 
 player = Entity(30, 1150, (0, 0, 255))
 villager = NPC(
