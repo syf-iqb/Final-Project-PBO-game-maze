@@ -33,8 +33,8 @@ Proyek ini merupakan sebuah game RPG sederhana berbasis 2D yang dibuat menggunak
 3. Download folder "final project" pada github ini dan pastikan semua isinya masuk ke folder yang sama.
 4. Buka file "MazeGame.py" di terminal atau di Visual Studio Code
 5. Control : -Arrow key/tombol panah untuk menggerakkan karakter.
-6.          -Space/spasi untuk interaksi.
-7.          -Esc untuk keluar game.
+             -Space/spasi untuk interaksi.
+             -Esc untuk keluar game.
 # Panduan Bermain
 1. Pemain harus menemukan dan interaksi npc/villager terlebih dahulu
 2. didekat villager akan ada sebuah kunci, ambil untuk membuka pintu
