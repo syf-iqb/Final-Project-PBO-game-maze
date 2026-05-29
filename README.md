@@ -40,6 +40,4 @@ Di suatu masa yang teramat lampau dunia dipenuhi oleh reruntuhan tak terhitung. 
 
 Ribuan mercenary akhirnya berlomba untuk mencari tahu keberadaan reruntuhan yang terdapat peti tersebut. Beberapa tahun telah berlalu dan akhirnya seorang mercenary menemukan sebuah reruntuhan yang dirumorkan tersebut. Walau sang mercenary telah menemukan reruntuhan tersebut ia harus bisa melewati berbagai rintangan yang ada didalam untuk mendapatkan peti tersebut, Namun yang tidak di sangka reruntuhan tersebut ternyata memiliki labirin yang gelap gulita serta rumit yang dapat membingungkan mercenary yang mencoba menyelesaikan ekspedisi didalam reruntuhan tersebut.
 
-
-
-# Dengan pencahayaan yang minim, banyaknya jebakan, serta harus mencari kunci yang digunakan untuk membuka berbagai ruangan Akankah Sang Mercenary berhasil mendapatkan peti tersebut?
+Dengan pencahayaan yang minim, banyaknya jebakan, serta harus mencari kunci yang digunakan untuk membuka berbagai ruangan Akankah Sang Mercenary berhasil mendapatkan peti tersebut?
