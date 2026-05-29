@@ -6,4 +6,4 @@ Ribuan mercenary akhirnya berlomba untuk mencari tahu keberadaan reruntuhan yang
 
 
 
-# Dengan pencahayaan yang minim, banyaknya jebakan, serta harus mencari kunci yang digunakan untuk membuka ruangan. Akankah Sang Mercenary dapat mengambil peti tersebut?
+# Dengan pencahayaan yang minim, banyaknya jebakan, serta harus mencari kunci yang digunakan untuk membuka berbagai ruangan Akankah Sang Mercenary dapat mengambil peti tersebut?
