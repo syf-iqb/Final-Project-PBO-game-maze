@@ -329,7 +329,7 @@ villager = NPC(
     "Ambil peti itu dan bawa kembali ke sini!"
 )
 
-treasure = Treasure(1750, 980)
+treasure = Treasure(870, 505)
 key_item = Key(14, 13)
 jebakan_list = [
     Trap(368, 603),
@@ -622,8 +622,20 @@ while running:
 
     # PLAYER DRAW
     player.draw(screen, camera_x, camera_y)
+    fog = pygame.Surface((WIDTH, HEIGHT), pygame.SRCALPHA)
+    fog.fill((0, 0, 0, 255))
 
-    # HUD: tampilkan ikon kunci di pojok kiri atas jika sudah punya kunci
+    player_screen = (
+        player.rect.centerx - camera_x,
+        player.rect.centery - camera_y
+    )
+
+    pygame.draw.circle(
+        fog,(0, 0, 0, 0), player_screen, FOV_RADIUS
+    )
+
+    screen.blit(fog, (0, 0))
+
     if player.has_key:
         screen.blit(key_img, (10, 10))
         hud_text = font.render("x1", True, WHITE)
