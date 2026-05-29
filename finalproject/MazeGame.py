@@ -329,7 +329,7 @@ villager = NPC(
     "Ambil peti itu dan bawa kembali ke sini!"
 )
 
-treasure = Treasure(1850, 1020)
+treasure = Treasure(1750, 980)
 key_item = Key(14, 13)
 jebakan_list = [
     Trap(368, 603),
