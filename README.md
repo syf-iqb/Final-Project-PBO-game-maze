@@ -32,9 +32,11 @@ Proyek ini merupakan sebuah game RPG sederhana berbasis 2D yang dibuat menggunak
 2. Install pygame dengan cara buka terminal dan jalankan command "pip install pygame".
 3. Download folder "final project" pada github ini dan pastikan semua isinya masuk ke folder yang sama.
 4. Buka file "MazeGame.py" di terminal atau di Visual Studio Code
-5. Control : -Arrow key/tombol panah untuk menggerakkan karakter.
-             -Space/spasi untuk interaksi.
-             -Esc untuk keluar game.
+5. Control :
+6. Arrow key/tombol panah untuk menggerakkan karakter.
+7. Space/spasi untuk interaksi.
+8. Esc untuk keluar game.
+   
 # Panduan Bermain
 1. Pemain harus menemukan dan interaksi npc/villager terlebih dahulu
 2. didekat villager akan ada sebuah kunci, ambil untuk membuka pintu
