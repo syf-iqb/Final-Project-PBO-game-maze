@@ -652,9 +652,6 @@ while running:
                     else:
                         active_message = ""
 
-    # =========================================
-    # MOVEMENT
-    # =========================================
     keys = pygame.key.get_pressed()
     if not is_dead:
         current_obstacles = tembok_list + [villager]
@@ -666,9 +663,6 @@ while running:
                 current_obstacles.append(door)
         player.move(keys, current_obstacles)
 
-    # =========================================
-    # TRAP
-    # =========================================
     for jebakan in jebakan_list:
         if (
             not jebakan.is_triggered
