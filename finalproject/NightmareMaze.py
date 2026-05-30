@@ -6,7 +6,7 @@ pygame.init()
 WIDTH, HEIGHT = 1000, 750
 screen = pygame.display.set_mode((0,0), pygame.FULLSCREEN)
 clock = pygame.time.Clock()
-pygame.display.set_caption("Game RPG")
+pygame.display.set_caption("Nightmare Maze")
 
 pink = (255, 192, 203)
 WHITE = (255, 255, 255)
@@ -14,20 +14,20 @@ GREEN = (34, 139, 34)
 BLACK = (0, 0, 0)
 CHOCLATE = (139, 69, 19)
 
-font = pygame.font.Font(None, 36)
+font        = pygame.font.Font(None, 36)
+font_title  = pygame.font.Font(None, 72)
+font_sub    = pygame.font.Font(None, 30)
+font_small  = pygame.font.Font(None, 26)
 
-# CAMERA
 camera_x = 0
 camera_y = 0
+
+ZOOM = 1.6   # 1.0 = normal, >1.0 = zoom in
 
 # FOV
 FOV_RADIUS = 80
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-
-# =========================================
-# LOAD SPRITE
-# =========================================
 def load_sprite_sheet(filename, frame_width, frame_height, scale=None):
     path = os.path.join(BASE_DIR, filename)
     sheet = pygame.image.load(path).convert_alpha()
@@ -39,15 +39,13 @@ def load_sprite_sheet(filename, frame_width, frame_height, scale=None):
             pygame.Rect(
                 i * frame_width,
                 0,
-                frame_width,
-                frame_height
+                frame_width, frame_height
             )
         )
         if scale:
             frame = pygame.transform.scale(frame, scale)
         frames.append(frame)
     return frames
-
 
 SOLDIER_FRAME_W = 100
 SOLDIER_FRAME_H = 100
@@ -66,9 +64,6 @@ soldier_walk_frames = load_sprite_sheet(
     SOLDIER_SCALE
 )
 
-# =========================================
-# TILESET
-# =========================================
 TILE_SRC = 16
 TILE_SIZE = 32
 
@@ -102,9 +97,6 @@ for ty in range(0, MAP_H, TILE_SIZE):
     for tx in range(0, MAP_W, TILE_SIZE):
         map_surface.blit(tile_floor, (tx, ty))
 
-# =========================================
-# LOAD ASSET KEY & CHEST
-# =========================================
 key_img = pygame.image.load(
     os.path.join(BASE_DIR, "keys_1_1.png")
 ).convert_alpha()
@@ -125,10 +117,6 @@ trap_img = pygame.image.load(
 ).convert_alpha()
 trap_img = pygame.transform.scale(trap_img, (24, 24))
 
-
-# =========================================
-# OBSTACLE
-# =========================================
 class Obstacle:
     def __init__(self, x, y, w, h):
         self.rect = pygame.Rect(x, y, w, h)
@@ -145,10 +133,6 @@ class Obstacle:
                 surface.blit(tile_wall, (rx + tx, ry + ty))
         surface.set_clip(old_clip)
 
-
-# =========================================
-# ENTITY
-# =========================================
 class Entity:
     def __init__(self, x, y, color):
         self.rect = pygame.Rect(x, y, 10, 10)
@@ -333,6 +317,97 @@ class Pintu(Entity):
             self.color,
             self.rect.move(-cam_x, -cam_y)
         )
+
+def mainmenu():
+    DARK_BG   = (15, 10, 25)
+    GOLD      = (255, 210, 60)
+    LIGHT     = (220, 220, 220)
+    DIM       = (160, 160, 160)
+    ACCENT    = (180, 80, 80)
+    BOX_COLOR = (30, 20, 45)
+    BOX_BORDER= (80, 60, 110)
+
+    panduan = [
+        "1. Temui NPC/Villager terlebih dahulu untuk mendapat misi.",
+        "2. Di dekat Villager ada sebuah kunci — ambil untuk membuka pintu.",
+        "3. Cari ruangan yang memiliki pintu (hati-hati, 1 pintu mengarah ke jebakan!).",
+        "4. Temukan chest/peti di dalam ruangan.",
+        "5. Kembali ke Villager dan berinteraksi untuk menyelesaikan misi.",
+        "6. Game tertutup otomatis 3 detik setelah misi selesai.",
+    ]
+
+    kontrol = [
+        ("Panah / Arrow Key", "Gerakkan karakter"),
+        ("SPASI",             "Interaksi / Mulai game"),
+        ("ESC",               "Keluar game"),
+    ]
+
+    blink_timer = 0
+    show_blink  = True
+
+    while True:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    pygame.quit()
+                    sys.exit()
+                if event.key == pygame.K_SPACE:
+                    return   # mulai game
+
+        W, H = screen.get_size()
+        screen.fill(DARK_BG)
+
+        # --- judul ---
+        title_surf = font_title.render("NIGHTMARE MAZE", True, GOLD)
+        screen.blit(title_surf, (W // 2 - title_surf.get_width() // 2, 40))
+
+        sub_surf = font_sub.render("RPG Adventure", True, DIM)
+        screen.blit(sub_surf, (W // 2 - sub_surf.get_width() // 2, 110))
+
+        pygame.draw.line(screen, BOX_BORDER, (W // 2 - 350, 140), (W // 2 + 350, 140), 2)
+
+        box_x, box_y = W // 2 - 380, 155
+        box_w, box_h = 760, 260
+        pygame.draw.rect(screen, BOX_COLOR,  (box_x, box_y, box_w, box_h), border_radius=10)
+        pygame.draw.rect(screen, BOX_BORDER, (box_x, box_y, box_w, box_h), 2, border_radius=10)
+
+        guide_title = font_sub.render("Panduan Bermain", True, GOLD)
+        screen.blit(guide_title, (box_x + 16, box_y + 10))
+
+        for i, line in enumerate(panduan):
+            txt = font_small.render(line, True, LIGHT)
+            screen.blit(txt, (box_x + 20, box_y + 40 + i * 34))
+
+        # --- kotak kontrol ---
+        ctrl_x, ctrl_y = W // 2 - 380, 430
+        ctrl_w, ctrl_h = 760, 140
+        pygame.draw.rect(screen, BOX_COLOR,  (ctrl_x, ctrl_y, ctrl_w, ctrl_h), border_radius=10)
+        pygame.draw.rect(screen, BOX_BORDER, (ctrl_x, ctrl_y, ctrl_w, ctrl_h), 2, border_radius=10)
+
+        ctrl_title = font_sub.render("Kontrol", True, GOLD)
+        screen.blit(ctrl_title, (ctrl_x + 16, ctrl_y + 10))
+
+        for i, (key, desc) in enumerate(kontrol):
+            key_surf  = font_small.render(f"[ {key} ]", True, ACCENT)
+            desc_surf = font_small.render(f"— {desc}", True, LIGHT)
+            screen.blit(key_surf,  (ctrl_x + 20,  ctrl_y + 42 + i * 30))
+            screen.blit(desc_surf, (ctrl_x + 200, ctrl_y + 42 + i * 30))
+
+        # --- teks blink "Tekan SPASI untuk mulai" ---
+        blink_timer += 1
+        if blink_timer >= 35:
+            blink_timer = 0
+            show_blink = not show_blink
+
+        if show_blink:
+            start_surf = font_sub.render("Tekan  SPASI  untuk mulai", True, WHITE)
+            screen.blit(start_surf, (W // 2 - start_surf.get_width() // 2, H - 80))
+
+        pygame.display.flip()
+        clock.tick(60)
 
 
 player = Entity(30, 1150, (0, 0, 255))
@@ -528,6 +603,9 @@ active_message = ""
 is_dead = False
 running = True
 
+# tampilkan halaman utama sebelum game dimulai
+mainmenu()
+
 while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -601,36 +679,46 @@ while running:
             break
 
     WIDTH, HEIGHT = screen.get_size()
-    camera_x = player.rect.centerx - WIDTH // 2
-    camera_y = player.rect.centery - HEIGHT // 2
-    screen.fill((20, 20, 20))
-    screen.blit(map_surface, (-camera_x, -camera_y))
+
+    # ukuran "jendela virtual" sebelum di-zoom
+    VIRT_W = int(WIDTH  / ZOOM)
+    VIRT_H = int(HEIGHT / ZOOM)
+
+    camera_x = player.rect.centerx - VIRT_W // 2
+    camera_y = player.rect.centery - VIRT_H // 2
+
+    # render semua ke surface virtual (lebih kecil = tampak zoom in)
+    game_surface = pygame.Surface((VIRT_W, VIRT_H))
+    game_surface.fill((20, 20, 20))
+    game_surface.blit(map_surface, (-camera_x, -camera_y))
 
     # dinding
     for obstacle in tembok_list:
-        obstacle.draw(screen, camera_x, camera_y)
+        obstacle.draw(game_surface, camera_x, camera_y)
 
     # trap
     for jebakan in jebakan_list:
         if not jebakan.is_triggered:
-            jebakan.draw_sprite(screen, camera_x, camera_y)
+            jebakan.draw_sprite(game_surface, camera_x, camera_y)
 
     # npc
-    villager.draw_sprite(screen, camera_x, camera_y)
+    villager.draw_sprite(game_surface, camera_x, camera_y)
 
     # pintu — render dengan tile tileset, hilang jika sudah dibuka
     for door in doors:
-        door.draw_sprite(screen, camera_x, camera_y)
+        door.draw_sprite(game_surface, camera_x, camera_y)
 
     # key — render dengan asset gambar
-    key_item.draw_sprite(screen, camera_x, camera_y)
+    key_item.draw_sprite(game_surface, camera_x, camera_y)
 
     # treasure — render dengan asset gambar
-    treasure.draw_sprite(screen, camera_x, camera_y)
+    treasure.draw_sprite(game_surface, camera_x, camera_y)
 
     # PLAYER DRAW
-    player.draw(screen, camera_x, camera_y)
-    fog = pygame.Surface((WIDTH, HEIGHT), pygame.SRCALPHA)
+    player.draw(game_surface, camera_x, camera_y)
+
+    # FOG OF WAR
+    fog = pygame.Surface((VIRT_W, VIRT_H), pygame.SRCALPHA)
     fog.fill((0, 0, 0, 255))
 
     player_screen = (
@@ -639,11 +727,16 @@ while running:
     )
 
     pygame.draw.circle(
-        fog,(0, 0, 0, 0), player_screen, FOV_RADIUS
+        fog, (0, 0, 0, 0), player_screen, FOV_RADIUS
     )
 
-    screen.blit(fog, (0, 0))
+    game_surface.blit(fog, (0, 0))
 
+    # scale virtual surface ke layar penuh
+    scaled = pygame.transform.scale(game_surface, (WIDTH, HEIGHT))
+    screen.blit(scaled, (0, 0))
+
+    # HUD (digambar langsung ke screen agar tidak ikut zoom)
     if player.has_key:
         screen.blit(key_img, (10, 10))
         hud_text = font.render("x1", True, WHITE)
@@ -651,8 +744,8 @@ while running:
 
     if active_message:
         text_surf = font.render(active_message, True, WHITE)
-        pygame.draw.rect(screen, BLACK, (50, 500, 700, 60))
-        screen.blit(text_surf, (70, 520))
+        pygame.draw.rect(screen, BLACK, (50, HEIGHT - 100, 700, 60))
+        screen.blit(text_surf, (70, HEIGHT - 86))
     pygame.display.flip()
     clock.tick(60)
 pygame.quit()
