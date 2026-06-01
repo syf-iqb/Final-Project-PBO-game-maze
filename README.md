@@ -28,6 +28,8 @@ Proyek ini merupakan sebuah game RPG sederhana berbasis 2D yang dibuat menggunak
    Terdapat jebakan pada beberapa bagian pada map yang menyebabkan player mati jika terkena.
 10. Respawn
     Setelah terkena jebakan, player dapat hidup kembali dan kembali ke titik awal permainan.
+11. Main Menu
+    Berisi interaksi start game dan panduan bermain.
 # Cara menjalankan game
 1. Download/install python versi dibawah 3.14 atau versi yang bisa menjalankan Pygame.
 2. Install pygame dengan cara buka terminal dan jalankan command "pip install pygame".
