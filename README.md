@@ -53,3 +53,6 @@ Dengan pencahayaan yang minim, banyaknya jebakan, serta harus mencari kunci yang
 
 # Screenshot 
 ![alt text](https://github.com/syf-iqb/Final-Project-PBO-game-maze/blob/main/Screenshot/Screenshot%202026-06-01%20110839.png?raw=true)
+![alt text](https://github.com/syf-iqb/Final-Project-PBO-game-maze/blob/main/Screenshot/Screenshot%202026-05-30%20061806.png?raw=true)
+![alt text](https://github.com/syf-iqb/Final-Project-PBO-game-maze/blob/main/Screenshot/Screenshot%202026-06-01%20110859.png?raw=true)
+![alt text](https://github.com/syf-iqb/Final-Project-PBO-game-maze/blob/main/Screenshot/Screenshot%202026-06-01%20110954.png?raw=true)
