@@ -1,4 +1,6 @@
 # Maze Game
+# Screenshot 
+![alt text](https://github.com/syf-iqb/Final-Project-PBO-game-maze/blob/main/Screenshot/Screenshot%202026-05-30%20055431.png?raw=true)
 # Deskripsi
 Proyek ini merupakan sebuah game RPG sederhana berbasis 2D yang dibuat menggunakan bahasa pemrograman Python dengan library Pygame. Game ini mengusung konsep petualangan di dalam dungeon atau labirin, di mana pemain harus menjelajahi area, menghindari jebakan, mencari kunci, membuka pintu, dan mengambil peti harta untuk menyelesaikan misi.
 # Anggota Kelompok
