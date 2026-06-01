@@ -1,7 +1,7 @@
 # Maze Game
 
 # Deskripsi
-Proyek ini merupakan sebuah game RPG sederhana berbasis 2D yang dibuat menggunakan bahasa pemrograman Python dengan library Pygame. Game ini mengusung konsep petualangan di dalam dungeon atau labirin, di mana pemain harus menjelajahi area, menghindari jebakan, mencari kunci, membuka pintu, dan mengambil peti harta untuk menyelesaikan misi.
+   Proyek ini merupakan sebuah game RPG sederhana berbasis 2D yang dibuat menggunakan bahasa pemrograman Python dengan library Pygame. Game ini mengusung konsep petualangan di dalam dungeon atau labirin, di mana pemain harus menjelajahi area, menghindari jebakan, mencari kunci, membuka pintu, dan mengambil peti harta untuk menyelesaikan misi.
 # Anggota Kelompok
 1. Nayaka Raya Archie Setianto (25051204001) - Pembuat Class + cerita
 2. Syifa'ul Iqbal Saputra (25051204007) – Pembuat map + FOV
@@ -45,11 +45,11 @@ Proyek ini merupakan sebuah game RPG sederhana berbasis 2D yang dibuat menggunak
 5. Game akan tertutup dalam 3 detik setelah berinteraksi kembali ke villager setelah mendapatkan chest atau peti.
 
 # Latar Belakang game
-Di suatu masa yang teramat lampau dunia dipenuhi oleh reruntuhan tak terhitung. Mercenary yang amat banyak telah berpetualang menyusuri reruntuhan, tak terhitung juga mercenary yang telah tiada didalam reruntuhan, Ini semua untuk mendapatkan peti harta karun yang sudah dicari begitu lama oleh sang Raja, Raja tersebut memiliki seorang Putri yang sedang sakit. Konon di dalam reruntuhan yang sangat rumit bahkan banyak mercenary gagal menyelesaikan ekspedisi di reruntuhan tersebut terdapat sebuah peti yang berisi ramuan yang dapat menyembuhkan penyakit sang Putri dari penyakitnya. Penyakit tersebut telah membuat sang Putri begitu tersiksa, sehingga membuat sang Raja akhirnya membuat sebuah Titah ke semua guild mercenary untuk menyebarkan sebuah tugas dengan hadiah fantastis yang berupa harta yang melimpah dan dapat menikahi sang putri.
+   Di suatu masa yang teramat lampau dunia dipenuhi oleh reruntuhan tak terhitung. Mercenary yang amat banyak telah berpetualang menyusuri reruntuhan, tak terhitung juga mercenary yang telah tiada didalam reruntuhan, Ini semua untuk mendapatkan peti harta karun yang sudah dicari begitu lama oleh sang Raja, Raja tersebut memiliki seorang Putri yang sedang sakit. Konon di dalam reruntuhan yang sangat rumit bahkan banyak mercenary gagal menyelesaikan ekspedisi di reruntuhan tersebut terdapat sebuah peti yang berisi ramuan yang dapat menyembuhkan penyakit sang Putri dari penyakitnya. Penyakit tersebut telah membuat sang Putri begitu tersiksa, sehingga membuat sang Raja akhirnya membuat sebuah Titah ke semua guild mercenary untuk menyebarkan sebuah tugas dengan hadiah fantastis yang berupa harta yang melimpah dan dapat menikahi sang putri.
 
-Ribuan mercenary akhirnya berlomba untuk mencari tahu keberadaan reruntuhan yang terdapat peti tersebut. Beberapa tahun telah berlalu dan akhirnya seorang mercenary menemukan sebuah reruntuhan yang dirumorkan tersebut. Walau sang mercenary telah menemukan reruntuhan tersebut ia harus bisa melewati berbagai rintangan yang ada didalam untuk mendapatkan peti tersebut, Namun yang tidak di sangka reruntuhan tersebut ternyata memiliki labirin yang gelap gulita serta rumit yang dapat membingungkan mercenary yang mencoba menyelesaikan ekspedisi didalam reruntuhan tersebut.
+   Ribuan mercenary akhirnya berlomba untuk mencari tahu keberadaan reruntuhan yang terdapat peti tersebut. Beberapa tahun telah berlalu dan akhirnya seorang mercenary menemukan sebuah reruntuhan yang dirumorkan tersebut. Walau sang mercenary telah menemukan reruntuhan tersebut ia harus bisa melewati berbagai rintangan yang ada didalam untuk mendapatkan peti tersebut, Namun yang tidak di sangka reruntuhan tersebut ternyata memiliki labirin yang gelap gulita serta rumit yang dapat membingungkan mercenary yang mencoba menyelesaikan ekspedisi didalam reruntuhan tersebut.
 
-Dengan pencahayaan yang minim, banyaknya jebakan, serta harus mencari kunci yang digunakan untuk membuka berbagai ruangan Akankah Sang Mercenary berhasil mendapatkan peti tersebut?
+   Dengan pencahayaan yang minim, banyaknya jebakan, serta harus mencari kunci yang digunakan untuk membuka berbagai ruangan Akankah Sang Mercenary berhasil mendapatkan peti tersebut?
 
 # Screenshot 
 ![alt text](https://github.com/syf-iqb/Final-Project-PBO-game-maze/blob/main/Screenshot/Screenshot%202026-06-01%20110839.png?raw=true)
