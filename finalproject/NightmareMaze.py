@@ -22,7 +22,7 @@ font_small  = pygame.font.Font(None, 26)
 camera_x = 0
 camera_y = 0
 
-ZOOM = 1.6   # 1.0 = normal, >1.0 = zoom in
+ZOOM = 1.6   # 1.0=normal
 
 # FOV
 FOV_RADIUS = 80
@@ -355,12 +355,11 @@ def mainmenu():
                     pygame.quit()
                     sys.exit()
                 if event.key == pygame.K_SPACE:
-                    return   # mulai game
+                    return   
 
         W, H = screen.get_size()
         screen.fill(DARK_BG)
 
-        # --- judul ---
         title_surf = font_title.render("NIGHTMARE MAZE", True, GOLD)
         screen.blit(title_surf, (W // 2 - title_surf.get_width() // 2, 40))
 
@@ -381,7 +380,6 @@ def mainmenu():
             txt = font_small.render(line, True, LIGHT)
             screen.blit(txt, (box_x + 20, box_y + 40 + i * 34))
 
-        # --- kotak kontrol ---
         ctrl_x, ctrl_y = W // 2 - 380, 430
         ctrl_w, ctrl_h = 760, 140
         pygame.draw.rect(screen, BOX_COLOR,  (ctrl_x, ctrl_y, ctrl_w, ctrl_h), border_radius=10)
@@ -396,7 +394,6 @@ def mainmenu():
             screen.blit(key_surf,  (ctrl_x + 20,  ctrl_y + 42 + i * 30))
             screen.blit(desc_surf, (ctrl_x + 200, ctrl_y + 42 + i * 30))
 
-        # --- teks blink "Tekan SPASI untuk mulai" ---
         blink_timer += 1
         if blink_timer >= 35:
             blink_timer = 0
@@ -603,7 +600,6 @@ active_message = ""
 is_dead = False
 running = True
 
-# tampilkan halaman utama sebelum game dimulai
 mainmenu()
 
 while running:
@@ -613,7 +609,7 @@ while running:
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_ESCAPE:
                 running = False
-            # INTERAKSI
+            # interaksi
             if event.key == pygame.K_SPACE:
                 if is_dead:
                     is_dead = False
@@ -657,7 +653,6 @@ while running:
         current_obstacles = tembok_list + [villager]
         if not treasure.is_collected:
             current_obstacles.append(treasure)
-        # pintu yang masih terkunci jadi obstacle
         for door in doors:
             if door.locked and not door.is_open:
                 current_obstacles.append(door)
@@ -674,14 +669,12 @@ while running:
 
     WIDTH, HEIGHT = screen.get_size()
 
-    # ukuran "jendela virtual" sebelum di-zoom
     VIRT_W = int(WIDTH  / ZOOM)
     VIRT_H = int(HEIGHT / ZOOM)
 
     camera_x = player.rect.centerx - VIRT_W // 2
     camera_y = player.rect.centery - VIRT_H // 2
 
-    # render semua ke surface virtual (lebih kecil = tampak zoom in)
     game_surface = pygame.Surface((VIRT_W, VIRT_H))
     game_surface.fill((20, 20, 20))
     game_surface.blit(map_surface, (-camera_x, -camera_y))
@@ -698,20 +691,19 @@ while running:
     # npc
     villager.draw_sprite(game_surface, camera_x, camera_y)
 
-    # pintu — render dengan tile tileset, hilang jika sudah dibuka
+    # pintu
     for door in doors:
         door.draw_sprite(game_surface, camera_x, camera_y)
 
-    # key — render dengan asset gambar
+    # kunci
     key_item.draw_sprite(game_surface, camera_x, camera_y)
 
-    # treasure — render dengan asset gambar
+    # chest
     treasure.draw_sprite(game_surface, camera_x, camera_y)
 
-    # PLAYER DRAW
     player.draw(game_surface, camera_x, camera_y)
 
-    # FOG OF WAR
+    # FOG
     fog = pygame.Surface((VIRT_W, VIRT_H), pygame.SRCALPHA)
     fog.fill((0, 0, 0, 255))
 
@@ -726,11 +718,9 @@ while running:
 
     game_surface.blit(fog, (0, 0))
 
-    # scale virtual surface ke layar penuh
     scaled = pygame.transform.scale(game_surface, (WIDTH, HEIGHT))
     screen.blit(scaled, (0, 0))
 
-    # HUD (digambar langsung ke screen agar tidak ikut zoom)
     if player.has_key:
         screen.blit(key_img, (10, 10))
         hud_text = font.render("x1", True, WHITE)
