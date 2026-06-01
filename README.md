@@ -1,6 +1,5 @@
 # Maze Game
-# Screenshot 
-![alt text](https://github.com/syf-iqb/Final-Project-PBO-game-maze/blob/main/Screenshot/Screenshot%202026-05-30%20055431.png?raw=true)
+
 # Deskripsi
 Proyek ini merupakan sebuah game RPG sederhana berbasis 2D yang dibuat menggunakan bahasa pemrograman Python dengan library Pygame. Game ini mengusung konsep petualangan di dalam dungeon atau labirin, di mana pemain harus menjelajahi area, menghindari jebakan, mencari kunci, membuka pintu, dan mengambil peti harta untuk menyelesaikan misi.
 # Anggota Kelompok
@@ -49,3 +48,6 @@ Di suatu masa yang teramat lampau dunia dipenuhi oleh reruntuhan tak terhitung. 
 Ribuan mercenary akhirnya berlomba untuk mencari tahu keberadaan reruntuhan yang terdapat peti tersebut. Beberapa tahun telah berlalu dan akhirnya seorang mercenary menemukan sebuah reruntuhan yang dirumorkan tersebut. Walau sang mercenary telah menemukan reruntuhan tersebut ia harus bisa melewati berbagai rintangan yang ada didalam untuk mendapatkan peti tersebut, Namun yang tidak di sangka reruntuhan tersebut ternyata memiliki labirin yang gelap gulita serta rumit yang dapat membingungkan mercenary yang mencoba menyelesaikan ekspedisi didalam reruntuhan tersebut.
 
 Dengan pencahayaan yang minim, banyaknya jebakan, serta harus mencari kunci yang digunakan untuk membuka berbagai ruangan Akankah Sang Mercenary berhasil mendapatkan peti tersebut?
+
+# Screenshot 
+![alt text] (https://github.com/syf-iqb/Final-Project-PBO-game-maze/blob/main/Screenshot/Screenshot%202026-06-01%20110839.png?raw=true)
