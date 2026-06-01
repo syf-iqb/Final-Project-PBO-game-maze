@@ -50,4 +50,4 @@ Ribuan mercenary akhirnya berlomba untuk mencari tahu keberadaan reruntuhan yang
 Dengan pencahayaan yang minim, banyaknya jebakan, serta harus mencari kunci yang digunakan untuk membuka berbagai ruangan Akankah Sang Mercenary berhasil mendapatkan peti tersebut?
 
 # Screenshot 
-![alt text] (https://github.com/syf-iqb/Final-Project-PBO-game-maze/blob/main/Screenshot/Screenshot%202026-06-01%20110839.png?raw=true)
+![alt text](https://github.com/syf-iqb/Final-Project-PBO-game-maze/blob/main/Screenshot/Screenshot%202026-06-01%20110839.png?raw=true)
