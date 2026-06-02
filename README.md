@@ -44,6 +44,29 @@
 4. cari sebuah chest dan kembali ke villager/npc untuk berinteraksi
 5. Game akan tertutup dalam 3 detik setelah berinteraksi kembali ke villager setelah mendapatkan chest atau peti.
 
+# Implementasi OOP
+1. Inheritance (Pewarisan)
+   Inheritance merupakan konsep OOP yang memungkinkan suatu class mewarisi atribut dan method dari class lain. Pada program game RPG ini, class Entity berperan sebagai parent class yang berisi atribut dan method    umum yang digunakan oleh seluruh objek dalam permainan. Salah satu penerapan nya ada di code:
+   class Entity:
+    def __init__(self, x, y, color):
+        ...
+2. Polymorphism (Polimorfisme)
+   Polymorphism merupakan konsep yang memungkinkan method dengan nama yang sama memiliki perilaku yang berbeda pada objek yang berbeda. Salah satu penerapan nya ada di code:
+   class Treasure(Entity):
+       def interact(self):
+           self.is_collected = True
+           return "Kamu mendapatkan peti"
+3. Abstraction (Abstraksi)
+   Abstraction merupakan proses menyembunyikan detail implementasi yang kompleks dan hanya menampilkan fungsi yang diperlukan oleh pengguna. Salah satu penerapan nya ada di code:
+   def load_sprite_sheet(filename, frame_width, frame_height, scale=None):
+4. Encapsulation (Enkapsulasi)
+   Encapsulation merupakan konsep penggabungan data (atribut) dan perilaku (method) ke dalam satu class sehingga data dapat dikelola dengan lebih terstruktur. Salah satu penerapan nya ada di code:
+   class Entity:
+    def __init__(self, x, y, color):
+        self.rect = pygame.Rect(x, y, 10, 10)
+        self.color = color
+        self.speed = 4
+
 # Latar Belakang game
    Di suatu masa yang teramat lampau dunia dipenuhi oleh reruntuhan tak terhitung. Mercenary yang amat banyak telah berpetualang menyusuri reruntuhan, tak terhitung juga mercenary yang telah tiada didalam reruntuhan, Ini semua untuk mendapatkan peti harta karun yang sudah dicari begitu lama oleh sang Raja, Raja tersebut memiliki seorang Putri yang sedang sakit. Konon di dalam reruntuhan yang sangat rumit bahkan banyak mercenary gagal menyelesaikan ekspedisi di reruntuhan tersebut terdapat sebuah peti yang berisi ramuan yang dapat menyembuhkan penyakit sang Putri dari penyakitnya. Penyakit tersebut telah membuat sang Putri begitu tersiksa, sehingga membuat sang Raja akhirnya membuat sebuah Titah ke semua guild mercenary untuk menyebarkan sebuah tugas dengan hadiah fantastis yang berupa harta yang melimpah dan dapat menikahi sang putri.
 
